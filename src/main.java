@@ -22,7 +22,6 @@ public class main {
                     " 3- Magicien noir\n" +
                     " 4- Magicien rouge\n");
             entree = sc.nextInt();
-            position = "deuxième";
             switch (entree) {
                 case 1:
                     if (position.equals("premier")) j1 = new Barbare();
@@ -40,10 +39,11 @@ public class main {
                     if (position.equals("premier")) j1 = new MagicienRouge();
                     else j2 = new MagicienRouge();
             }
+            position = "deuxième";
+        }
 
-            while (!mort) {
+        while (!mort) {
 
-            }
         }
         sc.close();
     }
