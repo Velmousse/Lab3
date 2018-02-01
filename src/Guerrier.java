@@ -4,7 +4,7 @@
 public abstract class Guerrier extends Personnage {
     protected int pointsDeForce = 0;
 
-    public void attaque(Personnage persoAttaque) {
-
+    public boolean attaque(Personnage persoAttaque) {
+        return false; //À modifier avec l'état de santé de l'ennemi
     }
 }

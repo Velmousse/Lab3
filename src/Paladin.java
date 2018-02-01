@@ -6,5 +6,6 @@ public class Paladin extends Guerrier {
         pointsDeForce = 5;
         pointsDeDefense = 5;
         pointsDeVie = 80;
+        nom = "paladin";
     }
 }
