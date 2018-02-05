@@ -56,8 +56,8 @@ public class Main {
             case 2: return new Paladin();
             case 3: return new MagicienNoir();
             case 4: return new MagicienRouge();
+            default: return new Barbare(); //Pour qu'il y ait un combat peu importe le choix, même s'il n'est pas valide
         }
-        return null;
     }
 
     public static boolean matchNul(Personnage premier, Personnage deuxieme) {
