@@ -16,7 +16,7 @@ public class main {
         position = "premier";
         System.out.print("Bienvenue dans RPG Simulator!\n\n");
         for (int i = 0; i < 2; i++) {
-            System.out.print("\nVeuillez choisir le " + position + " personnage\n" +
+            System.out.print("Veuillez choisir le " + position + " personnage\n" +
                     " 1- Barbare\n" +
                     " 2- Paladin\n" +
                     " 3- Magicien noir\n" +
@@ -43,24 +43,25 @@ public class main {
             }
             position = "deuxième";
         }
+        combat(j1, j2);
 
-        while (!fin) if (combat(j1, j2)) fin = true;
-
-        if (j1.getPointsDeVie() <= 0) System.out.print("Le " + j1.getNom() + " gagne la partie!");
-        else System.out.print("Le " + j2.getNom() + " gagne la partie!");
         sc.close();
     }
 
-    public static boolean combat(Personnage premier, Personnage deuxieme) {
-        boolean mort = false;
-
-        premier.attaque(deuxieme, premier);
-        System.out.print("\n");
-        deuxieme.attaque(premier, deuxieme);
-        System.out.print("\n");
-        if (premier.getPointsDeVie() <= 0 || deuxieme.getPointsDeVie() <= 0)
-            mort = true;
-
-        return mort;
+    public static void combat(Personnage premier, Personnage deuxieme) {
+        while (true) {
+            premier.attaque(deuxieme, premier);
+            System.out.print("\n");
+            if (deuxieme.getPointsDeVie() <= 0) {
+                System.out.print("Le " + premier.getNom() + " gagne la partie!");
+                return;
+            }
+            deuxieme.attaque(premier, deuxieme);
+            System.out.print("\n");
+            if (premier.getPointsDeVie() <= 0) {
+                System.out.print("Le " + deuxieme.getNom() + " gagne la partie!");
+                return;
+            }
+        }
     }
 }

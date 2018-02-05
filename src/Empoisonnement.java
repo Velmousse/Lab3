@@ -11,7 +11,8 @@ public class Empoisonnement extends Sort {
 
     public int lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
         int  degats = 0;
-        if (persoQuiAttaque.getPointsDeMagie() <= cout) {
+        if (persoQuiAttaque.getPointsDeMagie() >= cout) {
+            persoQuiAttaque.setPointsDeMagie(persoQuiAttaque.getPointsDeMagie() - cout);
             cumulDegats += 2;
             degats = cumulDegats;
         }

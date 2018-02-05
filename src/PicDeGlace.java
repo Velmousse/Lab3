@@ -9,7 +9,7 @@ public class PicDeGlace extends Sort {
 
     public int lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
         int degats = 0;
-        if (persoQuiAttaque.getPointsDeMagie() <= cout) {
+        if (persoQuiAttaque.getPointsDeMagie() >= cout) {
             persoQuiAttaque.setPointsDeMagie(persoQuiAttaque.getPointsDeMagie() - cout);
             degats = (7 - persoAttaque.getPointsDeDefense());
         }
