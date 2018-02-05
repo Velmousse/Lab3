@@ -5,7 +5,7 @@ public abstract class Personnage {
     protected int pointsDeVie = 0, pointsDeDefense = 0;
     protected String nom = "";
 
-    public abstract boolean attaque(Personnage persoAttaque);
+    public abstract void attaque(Personnage persoAttaque, Personnage persoQuiAttaque);
 
     public int getPointsDeVie() {
         return pointsDeVie;

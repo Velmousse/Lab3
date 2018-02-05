@@ -3,6 +3,15 @@
  */
 public abstract class Sort {
     protected int cout = 0;
+    protected String nom = "";
 
-    public abstract boolean lancerSort(Personnage persoAttaque, Magicien personnageQuiAttaque);
+    public abstract int lancerSort(Personnage persoAttaque, Magicien personnageQuiAttaque);
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getCout() {
+        return cout;
+    }
 }

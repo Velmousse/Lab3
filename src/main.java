@@ -10,8 +10,8 @@ public class main {
         boolean mort = false;
 
         Scanner sc = new Scanner(System.in);
-        Personnage j1;
-        Personnage j2;
+        Personnage j1 = null;
+        Personnage j2 = null;
 
         position = "premier";
         System.out.print("Bienvenue dans RPG Simulator!\n\n");
@@ -20,7 +20,8 @@ public class main {
                     " 1- Barbare\n" +
                     " 2- Paladin\n" +
                     " 3- Magicien noir\n" +
-                    " 4- Magicien rouge\n");
+                    " 4- Magicien rouge\n" +
+                    "> ");
             entree = sc.nextInt();
             switch (entree) {
                 case 1:
@@ -42,9 +43,23 @@ public class main {
             position = "deuxième";
         }
 
-        while (!mort) {
+        while (!mort) combat(j1, j2);
 
-        }
+        if (j1.getPointsDeVie() <= 0) System.out.print(j1.getNom() + " gagne la partie!");
+        else System.out.print(j2.getNom() + " gagne la partie!");
         sc.close();
+    }
+
+    public static boolean combat(Personnage premier, Personnage deuxieme) {
+        boolean mort = false;
+
+        premier.attaque(deuxieme, premier);
+        System.out.print("\n");
+        deuxieme.attaque(premier, deuxieme);
+        System.out.println("\n");
+        if (premier.getPointsDeVie() <= 0 || deuxieme.getPointsDeVie() <= 0)
+            mort = true;
+
+        return mort;
     }
 }

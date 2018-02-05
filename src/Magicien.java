@@ -18,4 +18,12 @@ public abstract class Magicien extends Personnage {
     public void setPointsDeMagie(int pointsDeMagie) {
         this.pointsDeMagie = pointsDeMagie;
     }
+
+    public void attaque(Personnage persoAttaque, Magicien persoQuiAttaque, int degats, Sort sort) {
+        persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - degats);
+        System.out.print("Le " + persoQuiAttaque.getNom() + " attaque!\n" +
+                "Le " + persoQuiAttaque + " utilise " + sort.getNom() + ", ce qui lui coûte " + sort.getCout() + " points de magie.\n" +
+                "Il lui reste " + persoQuiAttaque.getPointsDeMagie() + " points de magie.\n" +
+                "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie());
+    }
 }

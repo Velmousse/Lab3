@@ -4,13 +4,14 @@
 public class MortSubite extends Sort {
     public MortSubite() {
         cout = 10;
+        nom = "Mort Subite";
     }
 
-    public boolean lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
-        boolean mort = false;
+    public int lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
+        int degats = 0;
         if (persoQuiAttaque.getPointsDeMagie() <= cout) {
-            if (Math.random() * 11 == 1) mort = true;
+            if (Math.random() * 11 == 1) degats = persoAttaque.getPointsDeVie();
         }
-        return mort;
+        return degats;
     }
 }

@@ -3,7 +3,15 @@
  */
 public class MagicienRouge extends Magicien {
 
-    public boolean lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
+    public MagicienRouge() {
+        tabSorts[0] = new Empoisonnement();
+        tabSorts[1] = new MortSubite();
+        nom = "magicien noir";
+    }
 
+    public void attaque(Personnage persoAttaque, Personnage persoQuiAttaque) {
+        int sortEmploye = (int)((Math.random()*3) - 1);
+        int degats = (this.tabSorts[sortEmploye].lancerSort(persoAttaque, this));
+        super.attaque(persoAttaque, this, degats, this.tabSorts[sortEmploye]);
     }
 }

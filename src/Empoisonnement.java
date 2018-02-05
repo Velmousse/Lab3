@@ -6,16 +6,15 @@ public class Empoisonnement extends Sort {
 
     public Empoisonnement() {
         cout = 2;
+        nom = "Empoisonnement";
     }
 
-    public boolean lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
-        boolean mort = false;
+    public int lancerSort(Personnage persoAttaque, Magicien persoQuiAttaque) {
+        int  degats = 0;
         if (persoQuiAttaque.getPointsDeMagie() <= cout) {
             cumulDegats += 2;
-            persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - cumulDegats);
-            persoQuiAttaque.setPointsDeMagie(persoQuiAttaque.getPointsDeMagie() - cout);
+            degats = cumulDegats;
         }
-        if (persoAttaque.getPointsDeVie() <= 0) mort = true;
-        return mort;
+        return degats;
     }
 }

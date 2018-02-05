@@ -4,7 +4,9 @@
 public abstract class Guerrier extends Personnage {
     protected int pointsDeForce = 0;
 
-    public boolean attaque(Personnage persoAttaque) {
-        return false; //À modifier avec l'état de santé de l'ennemi
+    public void attaque(Personnage persoAttaque, Personnage persoQuiAttaque, int degats) {
+        persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - degats);
+        System.out.print("Le " + persoQuiAttaque.getNom() + " attaque!\n" +
+                "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie() + ".\n");
     }
 }
