@@ -24,6 +24,6 @@ public abstract class Magicien extends Personnage {
         System.out.print("Le " + persoQuiAttaque.getNom() + " attaque!\n" +
                 "Le " + persoQuiAttaque + " utilise " + sort.getNom() + ", ce qui lui coûte " + sort.getCout() + " points de magie.\n" +
                 "Il lui reste " + persoQuiAttaque.getPointsDeMagie() + " points de magie.\n" +
-                "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie());
+                "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie() + ".\n");
     }
 }

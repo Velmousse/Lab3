@@ -7,7 +7,7 @@ public class main {
     public static void main(String[] args) {
         String position = "premier";
         int entree = 0;
-        boolean mort = false;
+        boolean fin = false;
 
         Scanner sc = new Scanner(System.in);
         Personnage j1 = null;
@@ -23,6 +23,7 @@ public class main {
                     " 4- Magicien rouge\n" +
                     "> ");
             entree = sc.nextInt();
+            System.out.println();
             switch (entree) {
                 case 1:
                     if (position.equals("premier")) j1 = new Barbare();
@@ -43,10 +44,10 @@ public class main {
             position = "deuxième";
         }
 
-        while (!mort) combat(j1, j2);
+        while (!fin) if (combat(j1, j2)) fin = true;
 
-        if (j1.getPointsDeVie() <= 0) System.out.print(j1.getNom() + " gagne la partie!");
-        else System.out.print(j2.getNom() + " gagne la partie!");
+        if (j1.getPointsDeVie() <= 0) System.out.print("Le " + j1.getNom() + " gagne la partie!");
+        else System.out.print("Le " + j2.getNom() + " gagne la partie!");
         sc.close();
     }
 
@@ -56,7 +57,7 @@ public class main {
         premier.attaque(deuxieme, premier);
         System.out.print("\n");
         deuxieme.attaque(premier, deuxieme);
-        System.out.println("\n");
+        System.out.print("\n");
         if (premier.getPointsDeVie() <= 0 || deuxieme.getPointsDeVie() <= 0)
             mort = true;
 
