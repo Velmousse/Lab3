@@ -7,10 +7,4 @@ public class MagicienNoir extends Magicien{
         tabSorts[1] = new PicDeGlace();
         nom = "magicien noir";
     }
-
-    public void attaque(Personnage persoAttaque, Personnage persoQuiAttaque) {
-        int sortEmploye = (int)((Math.random()*3) - 1);
-        int degats = (this.tabSorts[sortEmploye].lancerSort(persoAttaque, this));
-        super.attaque(persoAttaque, this, degats, this.tabSorts[sortEmploye]);
-    }
 }

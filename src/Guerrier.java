@@ -4,9 +4,12 @@
 public abstract class Guerrier extends Personnage {
     protected int pointsDeForce = 0;
 
-    public void attaque(Personnage persoAttaque, Personnage persoQuiAttaque, int degats) {
+    public void attaque(Personnage persoAttaque) {
+        int degats = (this.pointsDeForce * 2 - persoAttaque.getPointsDeDefense());
+
         persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - degats);
-        System.out.print("Le " + persoQuiAttaque.getNom() + " attaque!\n" +
+        if (persoAttaque.getPointsDeVie() <= 0) persoAttaque.setPointsDeVie(0);
+        System.out.print("Le " + this.getNom() + " attaque!\n" +
                 "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie() + ".\n");
     }
 }

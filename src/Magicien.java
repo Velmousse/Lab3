@@ -6,7 +6,7 @@ public abstract class Magicien extends Personnage {
     protected Sort tabSorts[] = new Sort[2];
 
     public Magicien() {
-        pointsDeMagie = 50;
+        pointsDeMagie = 10;
         pointsDeDefense = 1;
         pointsDeVie = 60;
     }
@@ -19,14 +19,16 @@ public abstract class Magicien extends Personnage {
         this.pointsDeMagie = pointsDeMagie;
     }
 
-    public void attaque(Personnage persoAttaque, Magicien persoQuiAttaque, int degats, Sort sort) {
-        if (persoQuiAttaque.getPointsDeMagie() < 2) persoQuiAttaque.setPointsDeVie(0);
-        else {
-            persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - degats);
-            System.out.print("Le " + persoQuiAttaque.getNom() + " attaque!\n" +
-                    "Le " + persoQuiAttaque.getNom() + " utilise " + sort.getNom() + ", ce qui lui coûte " + sort.getCout() + " points de magie.\n" +
-                    "Il lui reste " + persoQuiAttaque.getPointsDeMagie() + " points de magie.\n" +
-                    "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie() + ".\n");
-        }
+    public void attaque(Personnage persoAttaque) {
+        Sort sortEmploye = this.tabSorts[(int) ((Math.random() * 3) - 1)];
+        int degats = sortEmploye.lancerSort(persoAttaque, this);
+
+        persoAttaque.setPointsDeVie(persoAttaque.getPointsDeVie() - degats);
+        if (persoAttaque.getPointsDeVie() <= 0) persoAttaque.setPointsDeVie(0);
+        System.out.print("Le " + this.getNom() + " attaque!\n" +
+                "Le " + this.getNom() + " utilise " + sortEmploye.getNom() + ", ce qui lui coûte " + sortEmploye.getCout() + " points de magie.\n" +
+                "Il lui reste " + this.getPointsDeMagie() + " points de magie.\n" +
+                "Le " + persoAttaque.getNom() + " perd " + degats + " points de vie. Il lui en reste " + persoAttaque.getPointsDeVie() + ".\n");
+
     }
 }
