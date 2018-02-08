@@ -55,8 +55,7 @@ public class Main {
             case 1: return new Barbare();
             case 2: return new Paladin();
             case 3: return new MagicienNoir();
-            case 4: return new MagicienRouge();
-            default: return new Barbare(); //Pour qu'il y ait un combat peu importe le choix, même s'il n'est pas valide
+            case 4: default: return new MagicienRouge();
         }
     }
 
